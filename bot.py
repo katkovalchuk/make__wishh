@@ -14,10 +14,13 @@ def wishTime():
     currentTime = time.strftime("%H:%M")
     splitedTime = currentTime.split(":")
     
-    perfectTime = []
+    perfectTime = ''
     if splitedTime[0] == splitedTime[1]:
         perfectTime = splitedTime[0]+':'+ splitedTime[1]
-    return str(perfectTime)
+    
+    if perfectTime:
+        api.update_status('It\'s ' + perfectTime +'! Make a wish!')
 
 while True:
-    api.update_status('It\'s ' + wishTime() +'! Make a wish!')
+    wishTime()
+    time.sleep(15)
