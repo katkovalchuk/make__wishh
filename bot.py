@@ -1,4 +1,4 @@
-import tweepy 
+pip install tweepy
 
 CONSUMER_KEY = 'PttCikEHkWuNErM3bCMhKdJ74'
 CONSUMER_SECRET = 'fh0mBe0nxrEvi6DHoBJhlMsR89PNtyFRJ7xb8gQZzuJ3V2d0t7'
