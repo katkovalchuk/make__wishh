@@ -23,4 +23,4 @@ def wishTime():
 
 while True:
     wishTime()
-    time.sleep(15)
+    time.sleep(50)
