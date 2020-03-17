@@ -18,7 +18,7 @@ def wishTime():
     splitedTime = currentTime.split(":")
     
     perfectTime = ''
-    if splitedTime[0] != splitedTime[1]:
+    if splitedTime[0] == splitedTime[1]:
         perfectTime = splitedTime[0]+':'+ splitedTime[1]
     
     if perfectTime:
