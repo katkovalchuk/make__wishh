@@ -10,12 +10,15 @@ auth.set_access_token(ACCESS_KEY, ACCESS_SECRET)
 api = tweepy.API(auth)
 
 import time
+import os
 def wishTime():
+    os.environ['TZ'] = 'Europe/Kiev'
+    time.tzset()
     currentTime = time.strftime("%H:%M")
     splitedTime = currentTime.split(":")
     
     perfectTime = ''
-    if splitedTime[0] == splitedTime[1]:
+    if splitedTime[0] != splitedTime[1]:
         perfectTime = splitedTime[0]+':'+ splitedTime[1]
     
     if perfectTime:
@@ -23,4 +26,4 @@ def wishTime():
 
 while True:
     wishTime()
-    time.sleep(50)
+    time.sleep(60)
