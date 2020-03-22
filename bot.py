@@ -23,7 +23,7 @@ def wishTime():
         
     exceprion_time = ['01:01', '02:02', '03:03', '04:04', '05:05', '06:06', '07:07', '08:08', '09:09']
     
-    if perfectTime is not in exceprion_time:
+    if perfectTime not in exceprion_time:
         api.update_status('It\'s ' + perfectTime +'! Make a wish!')
 
 while True:
