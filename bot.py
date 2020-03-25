@@ -21,21 +21,21 @@ def delete_old_tweets():
                 print("Deleted:", status[i].id)
             i = i + 1
         
-def wishTime():
+def wish_time():
     os.environ['TZ'] = 'Europe/Kiev'
     time.tzset()
-    currentTime = time.strftime("%H:%M")
-    splitedTime = currentTime.split(":")
+    current_time = time.strftime("%H:%M")
+    splited_time = currentTime.split(":")
     
-    perfectTime = ''
+    perfect_time = ''
     exceprion_time = ['01:01', '02:02', '03:03', '04:04', '05:05', '06:06', '07:07', '08:08', '09:09']
     
-    if splitedTime[0] == splitedTime[1] and splitedTime[0] not in exceprion_time:
-        perfectTime = splitedTime[0]+':'+ splitedTime[1]
-        
-    if perfectTime:
-        api.update_status('It\'s ' + perfectTime +'! Make a wish!')
+    if splited_time[0] == splited_time[1]:
+        perfect_time = splited_time[0]+':'+ splited_time[1]
+    
+    if perfect_time is True and perfect_time not in exception_time:
+        api.update_status('It\'s ' + perfect_time +'! Make a wish!')
 
 while True:
-    wishTime()
+    wish_time()
     time.sleep(60)
