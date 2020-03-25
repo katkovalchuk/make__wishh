@@ -11,6 +11,16 @@ api = tweepy.API(auth)
 
 import time
 import os
+
+def delete_old_tweets():
+    for status in tweepy.Cursor(api.user_timeline).pages():
+        i = 0
+        while i < len(status):
+            if str(status[i].created_at.date()) != time.strftime("%Y-%m-%d"):
+                api.destroy_status(status[i].id)
+                print("Deleted:", status[i].id)
+            i = i + 1
+        
 def wishTime():
     os.environ['TZ'] = 'Europe/Kiev'
     time.tzset()
