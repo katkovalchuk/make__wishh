@@ -9,18 +9,8 @@ auth = tweepy.OAuthHandler(CONSUMER_KEY, CONSUMER_SECRET)
 auth.set_access_token(ACCESS_KEY, ACCESS_SECRET)
 api = tweepy.API(auth)
 
-import time
-import os
-"""
-def delete_old_tweets():
-    for status in tweepy.Cursor(api.user_timeline).pages():
-        i = 0
-        while i < len(status):
-            if str(status[i].created_at.date()) != time.strftime("%Y-%m-%d"):
-                api.destroy_status(status[i].id)
-                print("Deleted:", status[i].id)
-            i = i + 1
-"""        
+import time, os
+
 def wish_time():
     os.environ['TZ'] = 'Europe/Kiev'
     time.tzset()
@@ -36,6 +26,19 @@ def wish_time():
     if bool(perfect_time) is True and perfect_time not in exception_time:
         api.update_status('It\'s ' + perfect_time +'! Make a wish!')
 
+def delete_old_tweets():
+    for status in tweepy.Cursor(api.user_timeline).pages():
+        i = 0
+        while i < len(status):
+            if str(status[i].created_at.date()) != time.strftime("%Y-%m-%d"):
+                api.destroy_status(status[i].id)
+                print("Deleted:", status[i].id)
+            i = i + 1
+
 while True:
     wish_time()
     time.sleep(60)
+
+while True:
+    delete_old_tweets()
+    time.sleep(172800)
