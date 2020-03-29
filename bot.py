@@ -9,7 +9,7 @@ auth = tweepy.OAuthHandler(CONSUMER_KEY, CONSUMER_SECRET)
 auth.set_access_token(ACCESS_KEY, ACCESS_SECRET)
 api = tweepy.API(auth)
 
-import time, os
+import time, os, sys
 
 def wish_time():
     os.environ['TZ'] = 'Europe/Kiev'
@@ -41,4 +41,5 @@ while True:
 
 while True:
     delete_old_tweets()
-    time.sleep(172800)
+    time.sleep(86400)
+    sys.stdout.flush()
