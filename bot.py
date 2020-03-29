@@ -33,7 +33,7 @@ def delete_old_tweets():
         while i < len(status):
             if str(status[i].created_at.date()) != time.strftime("%Y-%m-%d"):
                 api.destroy_status(status[i].id)
-                print("Deleted:", status[i].id)
+                #print("Deleted:", status[i].id)
             i = i + 1
 
 while True:
